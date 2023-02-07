@@ -9,10 +9,14 @@ app.get("/" , function(req , res){
         console.log(response.statusCode);
         response.on("data",function(data){
             const weatherData = JSON.parse(data);
-            console.log(weatherData);
+            // console.log(weatherData);
+            const temp = weatherData.main.temp;
+            const description = weatherData.weather[0].description;
+            console.log(temp);
+            console.log(description);
+            res.send("The temperature in Indore is " + temp + " degree Celcius");
         });
     });
-    res.send("ther server is up and runnig");
 });
 
 
